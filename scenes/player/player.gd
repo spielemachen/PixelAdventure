@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var jump_impulse: float = 120
 
 @onready var sprite = $Sprite2D
+@onready var animation_player = $AnimationPlayer
 
 var double_jump_used = false
 
@@ -29,5 +30,19 @@ func _physics_process(delta):
 		sprite.flip_h = true
 	elif velocity.x > 0:
 		sprite.flip_h = false
+	
+	if is_on_floor():	
+		if velocity.x != 0:
+			animation_player.play("move")
+		else:
+			animation_player.play("idle")
+	else:
+		if velocity.y < 0:
+			if double_jump_used:
+				animation_player.play("double_jump")
+			else:
+				animation_player.play("jump")
+		else:
+			animation_player.play("fall")
 
 	move_and_slide()
