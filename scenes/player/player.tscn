@@ -266,8 +266,9 @@ _data = {
 "move": SubResource("Animation_q8cat")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_q288w")
+move_speed = 75.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgdqi1rlpf4gp"]
+
+[ext_resource type="Texture2D" uid="uid://ncx7hrj3hw3" path="res://scenes/start/Start (Idle).png" id="1_hoye5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol3a1"]
+size = Vector2(34, 8)
+
+[node name="Start" type="Node2D"]
+position = Vector2(-1, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hoye5")
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoint" type="Node2D" parent="." groups=["PlayerSpawnPoint"]]
+position = Vector2(12, 23)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11, 28)
+shape = SubResource("RectangleShape2D_ol3a1")

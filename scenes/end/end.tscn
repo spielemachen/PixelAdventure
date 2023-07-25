@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf6kh460sx0ct"]
+
+[ext_resource type="Script" path="res://scenes/end/end.gd" id="1_1xv0f"]
+[ext_resource type="Texture2D" uid="uid://fxulu3xp543x" path="res://scenes/end/End (Idle).png" id="1_gb6fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m17sh"]
+size = Vector2(34, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeduh"]
+size = Vector2(15, 29)
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_1xv0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_gb6fm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_m17sh")
+
+[node name="EndTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndTrigger"]
+position = Vector2(0.5, -22.5)
+shape = SubResource("RectangleShape2D_xeduh")
